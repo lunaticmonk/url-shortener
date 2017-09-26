@@ -10,8 +10,9 @@ submitBtn.addEventListener('click', () => {
     xhttp.setRequestHeader('Content-Type', 'application/json');
     xhttp.onreadystatechange = ()=> {
       if (xhttp.readyState == 4 && xhttp.status == 200) {
-        console.log('Shortened URL: ', xhttp.responseText);
-      }      
+        console.log(xhttp.responseText);
+        document.querySelector('#shortenedURL').value = xhttp.responseText;
+      }
     }
     xhttp.send(JSON.stringify({ longURL : document.querySelector('#longURL').value }));
   }
