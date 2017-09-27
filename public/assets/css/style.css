@@ -1,0 +1,31 @@
+.landing-image {
+  background: url('../img/landing-image.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  min-width: 1024px;
+  min-height: 100%;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  left: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.ui.menu {
+  margin-bottom: 0 !important;
+}
+
+.ui.segment,{
+  min-height: 100%;
+  min-width: auto;
+}
+
+input[type="text"] {
+  min-width: 500px;
+  min-height: auto;
+}
+
+.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}

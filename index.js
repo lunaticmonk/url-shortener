@@ -32,9 +32,15 @@ app.post('/shortenURL', (req, res) => {
 });
 
 app.get('/:key', (req, res)=> {
-  url.findOne({ uniqueID: req.params.key }, (err, record)=> {
-    res.redirect(record.longURL);
-  });
+  console.log('Key: ', req.params.key);
+  try {
+    url.findOne({ uniqueID: req.params.key }, (err, record)=> {
+      if (err) return handleError(err);
+      res.redirect(record.longURL);
+    });
+  } catch (e) {
+    console.log(e);
+  }
 });
 
 app.listen(port, ()=> {
