@@ -13,7 +13,7 @@ submitBtn.addEventListener('click', () => {
         document.querySelector('#shortenedURL').value = xhttp.responseText;
       }
     }
-    xhttp.send(JSON.stringify({ longURL : document.querySelector('#longURL').value }));
+    xhttp.send(JSON.stringify({ longURL : document.querySelector('#longURL').value, origin: window.location.origin }));
   }
   // for IE
   // else {

@@ -24,7 +24,7 @@ app.post('/shortenURL', (req, res) => {
   let uniqueKey = generateKey();
   newURL.longURL = req.body.longURL;
   newURL.uniqueID = uniqueKey;
-  newURL.shortURL = `localhost:4200/${uniqueKey}`;
+  newURL.shortURL = `${req.body.origin}/${uniqueKey}`;
   newURL.save((err, url) => {
     if (err) return handleError(err);
     res.send(url.shortURL);
@@ -32,14 +32,11 @@ app.post('/shortenURL', (req, res) => {
 });
 
 app.get('/:key', (req, res)=> {
-  console.log('Key: ', req.params.key);
-  try {
+  if (req.params.key.length === 8) {
     url.findOne({ uniqueID: req.params.key }, (err, record)=> {
       if (err) return handleError(err);
       res.redirect(record.longURL);
     });
-  } catch (e) {
-    console.log(e);
   }
 });
 
