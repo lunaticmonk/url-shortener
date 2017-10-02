@@ -7,7 +7,7 @@ const configs = require('./config');
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 const app = express();
-const port = 4200 || process.ENV.PORT;
+const port = 4204 || process.ENV.PORT;
 
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/public/views');
@@ -37,6 +37,8 @@ app.get('/:key', (req, res)=> {
       if (err) return handleError(err);
       res.redirect(record.longURL);
     });
+  } else {
+    console.log('pass');
   }
 });
 
