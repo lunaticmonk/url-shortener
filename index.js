@@ -7,7 +7,7 @@ const configs = require('./config');
 const mongoose = require('mongoose');
 const bodyparser = require('body-parser');
 const app = express();
-const port = 4204 || process.ENV.PORT;
+const port = process.env.PORT|| 4200 ;
 
 app.set('view engine', 'hbs');
 app.set('views', __dirname + '/public/views');
